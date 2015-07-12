@@ -12,11 +12,11 @@ type Fetcher struct {
 	header map[string]string
 }
 
-func NewFetcher(url string, header map[string]string) Fetcher {
-	return Fetcher{url, header}
+func NewFetcher(url string, header map[string]string) *Fetcher {
+	return &Fetcher{url, header}
 }
 
-func (f Fetcher) Get() string {
+func (f *Fetcher) Get() string {
 	client := &http.Client{}
 
 	req, err := http.NewRequest("GET", f.url, nil)
